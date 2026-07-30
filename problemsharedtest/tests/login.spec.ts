@@ -6,7 +6,7 @@ test.describe('Sauce Demo Login', () => {
 
   test.beforeEach(async ({ page }) => {
     loginPage = new LoginPage(page);
-    await page.goto('/');               // navigate directly
+    await page.goto('/');
   });
 
   test('Valid credentials redirect to inventory', async ({ page }) => {
