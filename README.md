@@ -1,6 +1,6 @@
 # ProblemShared
 
-This is a UI automation framework built with **Playwright** and **TypeScript**.
+This is a UI automation framework.
 It tests the Sign‑In functionality of the [Sauce Labs demo application](https://www.saucedemo.com/).
 
 ## 📁 Project Structure
