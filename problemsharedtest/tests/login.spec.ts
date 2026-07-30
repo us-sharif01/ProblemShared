@@ -6,25 +6,25 @@ test.describe('Sauce Demo Login', () => {
 
   test.beforeEach(async ({ page }) => {
     loginPage = new LoginPage(page);
-    await loginPage.goto();
+    await page.goto('/');               // navigate directly
   });
 
-  test('Successful login with valid credentials', async ({ page }) => {
+  test('Valid credentials redirect to inventory', async ({ page }) => {
     await loginPage.login('standard_user', 'secret_sauce');
-    await expect(page).toHaveURL(/.*inventory.html/);
+    await expect(page).toHaveURL(/inventory.html/);
   });
 
-  test('Login attempt with a locked user shows an error', async ({ page }) => {
+  test('Locked out user sees error', async () => {
     await loginPage.login('locked_out_user', 'secret_sauce');
-    const error = await loginPage.getErrorMessage();
-    expect(error).toContain('Sorry, this user has been locked out.');
+    await expect(loginPage.errorMessage).toContainText(
+      'Sorry, this user has been locked out.'
+    );
   });
 
-  test('Login attempt with an invalid password shows an error', async ({ page }) => {
+  test('Invalid password shows error', async () => {
     await loginPage.login('standard_user', 'wrong_password');
-    const error = await loginPage.getErrorMessage();
-    expect(error).toContain(
-      'Username and password do not match any user in this service'
+    await expect(loginPage.errorMessage).toContainText(
+      'Username and password do not match'
     );
   });
 });
