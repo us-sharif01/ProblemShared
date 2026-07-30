@@ -6,14 +6,16 @@ It tests the Sign‑In functionality of the [Sauce Labs demo application](https:
 ## 📁 Project Structure
 ```
 problemsharedtests/
-├── package.json            # project metadata and scripts
-├── playwright.config.ts    # Playwright configuration
-├── tsconfig.json           # TypeScript compiler settings
-├── src/
-│   └── pages/
-│       └── LoginPage.ts    # Page Object for the login screen
+├── .gitignore
+├── README.md
+├── package.json
+├── package-lock.json
+├── playwright.config.ts
+└── src/
+    └── pages/
+        └── LoginPage.ts
 └── tests/
-    └── login.spec.ts       # Test cases (3 scenarios)
+    └── login.spec.ts
 ```
 
 ## 🚀 Setup Instructions
